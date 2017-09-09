@@ -77,8 +77,19 @@ WSGI_APPLICATION = 'proc_reg.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'processmanage',
+        'HOST': '10.76.0.128\SQLEXPRESS',
+        'PORT': '1433',
+        'USER': '1j5874sa',
+        'PASSWORD': '654321',
+        'OPTIONS' : {
+            'AUTOCOMMIT': True,
+            'host_is_server': True,
+            'unicode_results': True,
+            'driver': 'FreeTDS',
+            'extra_params': 'tds_version=8.0'
+            }
     }
 }
 
